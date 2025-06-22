@@ -7,7 +7,15 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://passresetflowapp.netlify.app'
+];
+
+app.use(cors({
+  origin: allowedOrigins
+}));
+
 app.use(express.json());
 
 // Routes
